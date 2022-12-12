@@ -10,9 +10,13 @@ function checkLength(countries) {
       'Too many matches found. Please enter a more specific name.'
     );
   }
+
   if (countries.length > 1 && countries.length < 10) {
     return renderCountryList(countries);
   }
-  const [oneCountry] = countries;
-  return renderOneCountry(oneCountry);
+
+  if (countries.length === 1) {
+    const [oneCountry] = countries;
+    return renderOneCountry(oneCountry);
+  }
 }
